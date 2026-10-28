@@ -30,7 +30,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include",
+        "include",
     ],
 }
 
@@ -43,7 +43,7 @@ cc_defaults {
     ramdisk_available: true,
     vendor_ramdisk_available: true,
     export_include_dirs: [
-        "dev-src/include",
+        "include",
     ],
 }
 
@@ -57,21 +57,20 @@ cc_prebuilt_library {
     host_supported: true,
     check_elf_files: false,
     export_include_dirs: [
-        "dev-src/include",
+        "include",
     ],
     prefer: true,
     apex_available: [
         "//apex_available:anyapex",
         "//apex_available:platform",
         "com.android.gki.*",
-        "com.android.virt",
     ],
     min_sdk_version: "29",
     shared: {
-        srcs: ["src/lib/libgflags.so"],
+        srcs: ["lib64/libgflags.so"],
     },
     static: {
-        srcs: ["dev-src/lib/libgflags.a"],
+        srcs: ["lib64/libgflags.a"],
     },
 }
 
@@ -80,8 +79,8 @@ cc_prebuilt_library_static {
     host_supported: true,
     check_elf_files: false,
     export_include_dirs: [
-        "dev-src/include",
+        "include",
     ],
     prefer: true,
-    srcs: ["dev-src/lib/libgflags.a"],
+    srcs: ["lib64/libgflags.a"],
 }
